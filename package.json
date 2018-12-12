@@ -1,0 +1,27 @@
+{
+    "name": "nl.livolo",
+    "version": "0.0.1",
+    "description": "Adds support for Livolo devices.",
+    "main": "app.js",
+    "directories": {
+      "lib": "lib"
+    },
+    "dependencies": {
+      "homey-log": "^1.0.5",
+      "homey-rfdriver": "^2.0.15"
+    },
+    "devDependencies": {},
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/nheijmink/livolo_homey.git"
+    },
+    "author": "Nick Heijmink",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/nheijmink/livolo_homey/issues"
+    },
+    "homepage": "https://github.com/nheijmink/livolo_homey"
+  }

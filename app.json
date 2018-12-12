@@ -1,24 +1,178 @@
 {
-  "id": "nl.heymink.levolo",
+  "id": "nl.heymink.livolo",
   "version": "0.0.1",
   "compatibility": ">=1.5.0",
   "sdk": 2,
   "name": {
-    "en": "Levolo switches"
+    "en": "Livolo switches",
+    "nl":  "Livolo schakelaars"
   },
   "description": {
-    "en": "Adds support for Levolo devices to homey"
+    "en": "This App adds support for Livolo devices to Homey",
+    "nl": "Geef Homey de mogelijkheid om Livolo schakelaars te bedienen"
   },
   "category": [
-    "video"
+    "lights"
   ],
   "permissions": [],
-  "images": {
-    "large": "/assets/images/large.png",
-    "small": "/assets/images/small.png"
-  },
   "author": {
-    "name": "Nick Heijmink",
-    "email": "nheijmink@gmail.com"
+    "name": "Nick Heijmink"
+  },
+  "images": {
+    "large": "./assets/images/large.png",
+    "small": "./assets/images/small.png"
+  },
+  "drivers": [
+    {
+      "images": {
+        "large": "/drivers/C701R/assets/images/large.png",
+        "small": "/drivers/C701R/assets/images/small.png"
+      },
+      "icon": "/drivers/C701R/assets/icon.svg",
+      "capabilities": [],
+      "class": "other",
+      "rf": {
+        "debounceTimeout": 500,
+        "minTxInterval": 1000,
+        "dropPendingPayload": false,
+        "signal": "livolo"
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings",
+            "nl": "Algemene instellingen"
+          },
+          "children": [
+            {
+              "id": "rotated",
+              "type": "radio",
+              "value": "0",
+              "label": {
+                "en": "Rotate wall switch",
+                "nl": "Roteer wandschakelaar"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Right Side Up",
+                    "nl": "Rechtop"
+                  }
+                },
+                {
+                  "id": "180",
+                  "label": {
+                    "en": "Upside Down",
+                    "nl": "Ondersteboven"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "pair": [
+        {
+          "id": "rf.imitate",
+          "options": {
+            "title": "rf.pair.imitate.title.wall_switch",
+            "body": "rf.pair.imitate.body.wall_switch",
+            "svg": "assets/svg/pair.svg"
+          }
+        },
+        {
+          "id": "rf.test",
+          "options": {
+            "title": "rf.pair.test.title.wall_switch",
+            "body": "rf.pair.test.body.wall_switch",
+            "svg": "assets/svg/test.svg"
+          },
+          "navigation": {
+            "prev": "rf.imitate",
+            "next": "rf.done"
+          }
+        },
+        {
+          "id": "rf.done"
+        }
+      ],
+      "id": "C701R",
+      "name": {
+        "en": "C701R",
+        "nl": "C701R"
+      }
+    }
+  ],
+  "flow": {
+    "triggers": [
+      {
+        "id": "C701R:received",
+        "title": {
+          "en": "Button is pressed",
+          "nl": "Knop is ingedrukt"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=C701R"
+          },
+          {
+            "name": "state",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "On",
+                  "nl": "Aan"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "signals": {
+    "433": {
+      "livolo": {
+        "sof": [
+          225,
+          2774
+        ],
+        "eof": [
+          236
+        ],
+        "words": [
+          [
+            240,
+            308,
+            240,
+            1348
+          ],
+          [
+            240,
+            1338,
+            240,
+            320
+          ]
+        ],
+        "interval": 10150,
+        "sensitivity": 0.5,
+        "repetitions": 10,
+        "minimalLength": 32,
+        "maximalLength": 36
+      }
+    }
   }
 }

@@ -1,3 +1,3 @@
-# Levolo switches
+# Livolo switches
 
-Adds support for Zigbee and 433mhz Levolo devices to Athom Homey
+Adds support for Zigbee and 433mhz Livolo devices to Athom Homey

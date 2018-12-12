@@ -1,0 +1,14 @@
+{
+    "id": "C701R",
+    "name": {
+        "en": "C701R",
+        "nl": "C701R"
+    },
+    "$extends": [
+        "defaults",
+        "images.png",
+        "settings.rotated.wall_switch",
+        "pair.wall_switch",
+        "flow.switch.single"
+    ]
+}
