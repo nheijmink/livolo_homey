@@ -1,0 +1,24 @@
+{
+  "id": "nl.heymink.levolo",
+  "version": "0.0.1",
+  "compatibility": ">=1.5.0",
+  "sdk": 2,
+  "name": {
+    "en": "Levolo switches"
+  },
+  "description": {
+    "en": "Adds support for Levolo devices to homey"
+  },
+  "category": [
+    "video"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Nick Heijmink",
+    "email": "nheijmink@gmail.com"
+  }
+}
